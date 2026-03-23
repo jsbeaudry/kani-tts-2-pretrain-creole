@@ -56,7 +56,7 @@ class LearnableRotaryEmbedding(nn.Module):
         self.alpha_max = alpha_max
 
         # Compute base RoPE frequencies (same as standard implementation)
-        base = config.rope_theta
+        base = getattr(config, "rope_theta", 10000.0)
         partial_rotary_factor = config.partial_rotary_factor if hasattr(config, "partial_rotary_factor") else 1.0
         head_dim = getattr(config, "head_dim", None) or config.hidden_size // config.num_attention_heads
         dim = int(head_dim * partial_rotary_factor)
