@@ -412,7 +412,7 @@ class FlashCompatibleLfm2ForCausalLM(Lfm2PreTrainedModel):
     - Flash Attention 2 optimized
     - Standard causal masking
     """
-    _tied_weights_keys = ["lm_head.weight"]
+    _tied_weights_keys = {"lm_head.weight": "model.embed_tokens.weight"}
 
     def __init__(
         self,
