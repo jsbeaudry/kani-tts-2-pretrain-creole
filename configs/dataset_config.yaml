@@ -3,7 +3,7 @@ lenght_statistics: false
 
 hf_datasets:
 
-  - reponame: username/my-english-codec-dataset
+  - reponame: jsbeaudry/kani-pretrain-data
     name: null
     split: train
     text_col_name: text
@@ -13,16 +13,4 @@ hf_datasets:
     nano_layer_4: nano_layer_4
     encoded_len: encoded_len
     speaker_emb: grouped_sp_emb
-    language_tag: en
-
-  - reponame: username/my-spanish-codec-dataset
-    name: null
-    split: train
-    text_col_name: text
-    nano_layer_1: nano_layer_1
-    nano_layer_2: nano_layer_2
-    nano_layer_3: nano_layer_3
-    nano_layer_4: nano_layer_4
-    encoded_len: encoded_len
-    speaker_emb: grouped_sp_emb
-    language_tag: es
+    language_tag: ht
