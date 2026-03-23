@@ -35,12 +35,12 @@ training:
   average_tokens_across_devices: false
 
   # Dataset path
-  dataset_path: "/ephemeral/train_dataset"
+  dataset_path: "./train_dataset"
 
 # Wandb configuration
 wandb:
-  project: "my-tts-project"
-  name: "experiment-001"
+  project: "kani-tts-2-pretrain"
+  name: "kani-pretrain-ht-001"
   entity: null  # Optional: your wandb entity/team
 
 # Attention Metrics Configuration
