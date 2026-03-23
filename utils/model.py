@@ -371,7 +371,7 @@ class FlashCompatibleLfm2Model(Lfm2Model):
         # If using learnable RoPE, we compute per-layer embeddings in the loop
         # Otherwise, use global position embeddings
         if not self.use_learnable_rope:
-            position_embeddings = self.pos_emb(hidden_states, position_ids)
+            position_embeddings = (self.pos_emb if hasattr(self, 'pos_emb') else self.rotary_emb)(hidden_states, position_ids)
         else:
             position_embeddings = None
 
@@ -383,7 +383,7 @@ class FlashCompatibleLfm2Model(Lfm2Model):
                 position_embeddings = self.learnable_rope_layers[layer_idx](hidden_states, position_ids)
             elif self.use_learnable_rope and position_embeddings is None:
                 # This is a conv layer, use standard RoPE (compute once)
-                position_embeddings = self.pos_emb(hidden_states, position_ids)
+                position_embeddings = (self.pos_emb if hasattr(self, 'pos_emb') else self.rotary_emb)(hidden_states, position_ids)
 
             hidden_states = decoder_layer(
                 hidden_states,
