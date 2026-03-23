@@ -260,7 +260,6 @@ class KaniTTS2Trainer:
         # Create training arguments
         training_args = TrainingArguments(
             output_dir=self.training_config.output_dir,
-            overwrite_output_dir=self.training_config.overwrite_output_dir,
             num_train_epochs=self.training_config.num_train_epochs,
             per_device_train_batch_size=self.training_config.per_device_train_batch_size,
             gradient_accumulation_steps=self.training_config.gradient_accumulation_steps,
